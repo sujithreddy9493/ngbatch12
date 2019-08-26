@@ -51,7 +51,7 @@
        [ngClass] ='{"is-invalid" : loginFormGroup.controls.password?.invalid}'
        placeholder="Password">
      <div class = "invalid-feedback">
-        <p *ngIf ="loginFormGroup.controls.password?.errors.required">enter password</p>
+         Enter password
      </div>
   
     </div>
@@ -61,41 +61,61 @@
     </div>
     <div >
         <label for="exampleInputFirstname" style="color: crimson">First name</label>
-      <input type="text"  name="Firstname"
+      <input type="text"  ngModel
+      required
+       name="Firstname"
       style="width: 250px;height: 40px; color:deeppink"
-      class="form-control" placeholder="First name" required="form-control">
+      class="form-control"
+      [ngClass] ='{"is-invalid" : loginFormGroup.controls.Firstname?.invalid}'
+       placeholder="First name">
+<div class="invalid-feedback">Enter  Firstname</div>
+
       <label for="exampleInputLastname" style="color: crimson">Lastname</label>
-      <input type="text" name="Lastname"
+      <input type="text" ngModel
+      required name="Lastname"
       style="width: 250px;height: 40px; color:deeppink"
-      class="form-control" placeholder="Last name">
-    
+      class="form-control" 
+      [ngClass] ='{"is-invalid" : loginFormGroup.controls.Lastname?.invalid}'
+      placeholder="Last name">
+      <div class="invalid-feedback">Enter Lastname</div>
       </div>
       <div>
           <label for="exampleInputCity" style="color: crimson">City</label>
-        <input type="text" name="city"
+        <input type="text"  
+        ngModel
+        required
+        name="city"
         style="width: 250px;height: 40px; color:cyan"
-        class ="form-control" placeholder="city">
+        class ="form-control"
+         [ngClass] ='{"is-invalid" : loginFormGroup.controls.city?.invalid}' placeholder="city">
+         <div class="invalid-feedback">
+              Lastname
+         </div>
       </div>
       <div>
           <label for="exampleInputState" style="color:crimson">State</label>
-        <input type="text" name="state"
+        <input type="text" ngModel
+        required name="state"
         style="width: 250px;height: 40px; color:darkorchid"
-        class="form-control" placeholder="state">
-
+        class="form-control"
+        [ngClass] ='{"is-invalid" : loginFormGroup.controls.state?.invalid}' placeholder="city">
+         placeholder="state">
+         <div class="invalid-feedback">
+          Enter state
+     </div>
       </div>
       <div>
         <label for="exampleInputAddress" style="color:crimson">Address</label>
         <input type="text"
         ngModel
         required
-        Address
          name="address"
         style="width: 250px;height: 40px; color:darkorchid"
         class="form-control" 
-        [ngClass] ='{"is-invalid" : loginFormGroup.controls.Address?.invalid}'
+        [ngClass] ='{"is-invalid" : loginFormGroup.controls.address?.invalid}'
         placeholder="Address">
         <div class = "invalid-feedback">
-          <p *ngIf ="loginFormGroup.controls.Address?.errors.required">Enter your address</p>
+          Enter your address
          
          </div>
       </div>
@@ -104,13 +124,16 @@
 
         <input type="number" name="number"
         ngModel
-        required="number"
-      
+        required
+        number
         style="width: 250px;height: 40px; color:darkviolet"
-       
+        [ngClass] ='{"is-invalid" : loginFormGroup.controls.number?.invalid}'
         class="form-control"
          placeholder="number">
+         <div class = "invalid-feedback">
+              Enter your number
          
+         </div>
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     <input type="reset" value="clear"/>
