@@ -3,34 +3,120 @@
 </header>
 <form #loginFormGroup = 'ngForm'(ngSubmit)="formDetails(loginFormGroup)" >
  <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
+      <label for="exampleInputEmail1" style="color: brown">Email address</label>
       <input 
        type="email"
        ngModel
+       required
+       email
        name="email"
-       style="width: 250px;height: 50px; color: blue"
+       style="width: 300px;height: 30px; color: blue" 
        class="form-control"
        id="exampleInputEmail1" 
-       aria-describedby="emailHelp" placeholder="Enter email" required="email">
+       [ngClass] ='{"is-invalid" : loginFormGroup.controls.email?.invalid}'
+       aria-describedby="emailHelp" placeholder="Enter email">
+       <div class = "invalid-feedback">
+        <p *ngIf ="loginFormGroup.controls.email?.errors.required">This is a mandatory feild</p>
+        <p *ngIf ="loginFormGroup.controls.email?.errors.email">Enter valid email address</p>
+       </div>
+       <div>
+          <ul>
+           <li><h5>email valid </h5>
+          <span>{{loginFormGroup.controls.email?.valid}}</span></li>
+           <li><h5>email invalid </h5>
+          <span>{{loginFormGroup.controls.email?.invalid}}</span></li>
+           <li><h5>email touched </h5>
+          <span>{{loginFormGroup.controls.email?.touched}}</span></li>
+           <li><h5>email untouched </h5>
+          <span>{{loginFormGroup.controls.email?.untouched}}</span></li>
+           <li><h5>email pristine </h5>
+          <span>{{loginFormGroup.controls.email?.pristine}}</span></li>
+           <li><h5>email dirty </h5>
+          <span>{{loginFormGroup.controls.email?.dirty}}</span></li>
+           </ul>
+       </div>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
+      <label for="exampleInputPassword1" style="color:brown ">Password</label>
       <input
        type="password"
        ngModel
+       required
+       password
        name="password"
-       style="width: 250px;height: 50px;"
+       style="width: 250px;height: 30px;"
        class="form-control" 
-       id="exampleInputPassword1" placeholder="Password">
+       id="exampleInputPassword1" 
+       [ngClass] ='{"is-invalid" : loginFormGroup.controls.password?.invalid}'
+       placeholder="Password">
+     <div class = "invalid-feedback">
+        <p *ngIf ="loginFormGroup.controls.password?.errors.required">enter password</p>
+     </div>
+  
     </div>
     <div class="form-group form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1">
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
+    <div >
+        <label for="exampleInputFirstname" style="color: crimson">First name</label>
+      <input type="text"  name="Firstname"
+      style="width: 250px;height: 40px; color:deeppink"
+      class="form-control" placeholder="First name" required="form-control">
+      <label for="exampleInputLastname" style="color: crimson">Lastname</label>
+      <input type="text" name="Lastname"
+      style="width: 250px;height: 40px; color:deeppink"
+      class="form-control" placeholder="Last name">
+    
+      </div>
+      <div>
+          <label for="exampleInputCity" style="color: crimson">City</label>
+        <input type="text" name="city"
+        style="width: 250px;height: 40px; color:cyan"
+        class ="form-control" placeholder="city">
+      </div>
+      <div>
+          <label for="exampleInputState" style="color:crimson">State</label>
+        <input type="text" name="state"
+        style="width: 250px;height: 40px; color:darkorchid"
+        class="form-control" placeholder="state">
+
+      </div>
+      <div>
+        <label for="exampleInputAddress" style="color:crimson">Address</label>
+        <input type="text"
+        ngModel
+        required
+        Address
+         name="address"
+        style="width: 250px;height: 40px; color:darkorchid"
+        class="form-control" 
+        [ngClass] ='{"is-invalid" : loginFormGroup.controls.Address?.invalid}'
+        placeholder="Address">
+        <div class = "invalid-feedback">
+          <p *ngIf ="loginFormGroup.controls.Address?.errors.required">Enter your address</p>
+         
+         </div>
+      </div>
+      <div>
+          <label for="exampleInputNumber" style="color: crimson">Number</label>
+
+        <input type="number" name="number"
+        ngModel
+        required="number"
+      
+        style="width: 250px;height: 40px; color:darkviolet"
+       
+        class="form-control"
+         placeholder="number">
+         
+      </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     <input type="reset" value="clear"/>
   </form>
+
   <footer>
     <h6 align="center">{{S}}</h6>
   </footer>
+  
