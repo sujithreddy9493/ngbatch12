@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   username:string;
   arr = ['red','blue','green'];
 
-  @ViewChild('user',{static: false}) userElement:ElementRef;
+ // @ViewChild('user',{static: false}) userElement:ElementRef;
 
   ngOnInit(){
 
